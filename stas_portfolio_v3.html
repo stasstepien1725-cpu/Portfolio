@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stas Stepien — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --brg:        #004225;
+  --brg-mid:    #005a32;
+  --brg-lite:   #006b3c;
+  --beige:      #f2e8d5;
+  --beige-dark: #e5d5bc;
+  --beige-card: #ede0c8;
+  --gold:       #c9a855;
+  --gold-dark:  #a8883a;
+  --gold-dim:   rgba(201,168,85,0.2);
+  --muted:      #7a6e5f;
+  --white:      #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Outfit', sans-serif;
+  background: var(--beige);
+  color: var(--brg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: var(--brg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  height: 60px;
+  border-bottom: 1px solid var(--gold-dim);
+}
+
+.nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--beige);
+  font-size: 1.1rem;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+}
+
+.nav-links { display: flex; gap: 2.25rem; list-style: none; }
+
+.nav-links a {
+  color: rgba(242,232,213,0.55);
+  text-decoration: none;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+
+/* SHARED */
+.wrap { max-width: 1160px; margin: 0 auto; padding: 0 6%; }
+
+section { padding: 6rem 0; }
+
+.label {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 0.65rem;
+}
+
+h2.title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  color: var(--brg);
+}
+h2.title.light { color: var(--beige); }
+
+.btn {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  background: transparent;
+  text-decoration: none;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+.btn:hover { background: var(--gold); color: var(--brg); }
+
+/* HERO */
+#home {
+  background: var(--brg);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.hero-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 6%;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 5rem;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+.hero-rule {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 700;
+  color: var(--beige);
+  line-height: 0.95;
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.01em;
+}
+
+.hero-sub {
+  color: rgba(242,232,213,0.55);
+  font-size: 0.98rem;
+  font-weight: 300;
+  max-width: 400px;
+  margin-bottom: 2.5rem;
+  line-height: 1.75;
+}
+
+.hero-photo {
+  aspect-ratio: 3/4;
+  background: var(--brg-mid);
+  border: 1px solid var(--gold-dim);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+.photo-ph {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(242,232,213,0.15);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* STATS STRIP */
+#stats {
+  background: var(--beige-dark);
+  padding: 2.5rem 0;
+  border-top: 1px solid rgba(0,66,37,0.08);
+  border-bottom: 1px solid rgba(0,66,37,0.08);
+}
+
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  text-align: center;
+}
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--brg);
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+
+.stat-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+/* ABOUT */
+#about { background: var(--beige); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 58% 1fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+.about-body p {
+  color: var(--muted);
+  font-weight: 300;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.strength-stack { display: flex; flex-direction: column; gap: 1rem; margin-top: 0.25rem; }
+
+.strength-item {
+  padding: 1.1rem 1.25rem;
+  border-left: 2px solid var(--gold);
+  background: var(--beige-dark);
+  transition: background 0.2s;
+}
+.strength-item:hover { background: var(--beige-card); }
+
+.strength-item h4 {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--brg);
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.03em;
+}
+
+.strength-item p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+/* SKILLS */
+#skills { background: var(--brg); }
+
+.skills-cols {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.skill-col h3 {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(201,168,85,0.2);
+}
+
+.sk {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+  color: rgba(242,232,213,0.7);
+  font-size: 0.88rem;
+  font-weight: 300;
+}
+
+.dot {
+  width: 4px; height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  margin-top: 0.62em;
+  flex-shrink: 0;
+  opacity: 0.7;
+}
+
+/* PROJECTS */
+#projects { background: var(--beige-dark); }
+
+.proj-list { display: flex; flex-direction: column; gap: 2.5rem; margin-top: 3rem; }
+
+.proj-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--beige);
+  overflow: hidden;
+}
+
+.proj-card:nth-child(even) .proj-imgs { order: 2; }
+.proj-card:nth-child(even) .proj-body { order: 1; }
+
+.proj-imgs {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  min-height: 400px;
+}
+
+.proj-img {
+  background: var(--brg-mid);
+  overflow: hidden;
+  position: relative;
+}
+.proj-img:nth-child(2) { background: var(--brg); }
+
+.proj-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.img-ph {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(242,232,213,0.15);
+  font-size: 0.68rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.proj-body { padding: 2.75rem; }
+
+.proj-tag {
+  display: inline-block;
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  border: 1px solid rgba(168,136,58,0.4);
+  padding: 0.18rem 0.6rem;
+  margin-bottom: 0.85rem;
+}
+
+.proj-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.65rem;
+  font-weight: 600;
+  color: var(--brg);
+  line-height: 1.2;
+  margin-bottom: 0.85rem;
+}
+
+.proj-overview {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin-bottom: 1.4rem;
+  line-height: 1.75;
+}
+
+.proj-role-head {
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brg);
+  font-weight: 500;
+  margin-bottom: 0.55rem;
+}
+
+.proj-role-list { list-style: none; margin-bottom: 1.5rem; }
+
+.proj-role-list li {
+  font-size: 0.86rem;
+  color: var(--muted);
+  font-weight: 300;
+  padding: 0.22rem 0 0.22rem 1rem;
+  position: relative;
+}
+
+.proj-role-list li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.72em;
+  width: 4px; height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.skills-shown {
+  border-top: 1px solid var(--beige-dark);
+  padding-top: 1.1rem;
+}
+
+.skills-shown-label {
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6rem;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+.tag {
+  font-size: 0.7rem;
+  background: var(--beige-dark);
+  color: var(--brg);
+  padding: 0.18rem 0.55rem;
+  font-weight: 400;
+}
+
+/* CPD */
+#cpd { background: var(--beige); }
+
+.cpd-intro {
+  color: var(--muted);
+  font-weight: 300;
+  max-width: 520px;
+  margin-bottom: 0;
+  font-size: 0.98rem;
+}
+
+.cpd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.cpd-card {
+  border: 1px solid var(--beige-dark);
+  padding: 1.6rem;
+  background: var(--white);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.cpd-card:hover {
+  border-color: rgba(201,168,85,0.4);
+  transform: translateY(-2px);
+}
+
+.cpd-meta { display: flex; gap: 1rem; margin-bottom: 0.8rem; }
+
+.cpd-meta span {
+  font-size: 0.72rem;
+  color: var(--muted);
+  font-weight: 300;
+}
+
+.cpd-card h3 {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--brg);
+  margin-bottom: 0.45rem;
+  line-height: 1.4;
+}
+
+.cpd-badge {
+  display: inline-block;
+  font-size: 0.66rem;
+  background: rgba(201,168,85,0.1);
+  color: var(--gold-dark);
+  padding: 0.15rem 0.5rem;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.03em;
+}
+
+.cpd-card p {
+  font-size: 0.83rem;
+  color: var(--muted);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+/* CV */
+#cv { background: var(--brg); }
+
+.cv-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  margin-top: 3rem;
+}
+
+.cv-sec { margin-bottom: 2.25rem; }
+
+.cv-sec-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1rem;
+  padding-bottom: 0.55rem;
+  border-bottom: 1px solid rgba(201,168,85,0.18);
+}
+
+.cv-item { margin-bottom: 1.4rem; }
+
+.cv-item h4 {
+  color: var(--beige);
+  font-size: 0.92rem;
+  font-weight: 500;
+  margin-bottom: 0.18rem;
+}
+
+.cv-sub {
+  font-size: 0.78rem;
+  color: rgba(242,232,213,0.38);
+  margin-bottom: 0.45rem;
+}
+
+.cv-item ul { list-style: none; }
+
+.cv-item ul li {
+  font-size: 0.83rem;
+  color: rgba(242,232,213,0.62);
+  font-weight: 300;
+  padding: 0.15rem 0 0.15rem 1rem;
+  position: relative;
+}
+
+.cv-item ul li::before {
+  content: '';
+  position: absolute; left: 0; top: 0.68em;
+  width: 3px; height: 3px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.skill-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+
+.pill {
+  font-size: 0.73rem;
+  border: 1px solid rgba(201,168,85,0.22);
+  color: rgba(242,232,213,0.55);
+  padding: 0.18rem 0.6rem;
+  font-weight: 300;
+}
+
+/* TESTIMONIALS */
+#testimonials { background: var(--beige-dark); }
+
+.test-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+}
+
+.test-card {
+  background: var(--beige);
+  padding: 1.75rem;
+  transition: transform 0.2s;
+}
+.test-card:hover { transform: translateY(-2px); }
+
+.qmark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 0.2rem;
+  opacity: 0.35;
+}
+
+.test-card blockquote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--muted);
+  font-weight: 400;
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.test-name { font-size: 0.82rem; font-weight: 500; color: var(--brg); }
+.test-role { font-size: 0.76rem; color: var(--muted); font-weight: 300; }
+
+/* CONTACT */
+#contact { background: var(--brg); padding: 5rem 0; }
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.contact-text p {
+  color: rgba(242,232,213,0.55);
+  font-weight: 300;
+  font-size: 0.98rem;
+  margin-top: 1rem;
+  max-width: 380px;
+}
+
+.contact-details { display: flex; flex-direction: column; gap: 1.25rem; }
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--gold-dim);
+}
+
+.contact-item-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.contact-item-value {
+  color: rgba(242,232,213,0.7);
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+/* FOOTER */
+footer {
+  background: rgba(0,0,0,0.25);
+  background: #002d19;
+  padding: 2rem 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer p { color: rgba(242,232,213,0.22); font-size: 0.75rem; font-weight: 300; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .hero-wrap, .about-grid, .cv-grid, .contact-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .skills-cols, .cpd-grid, .test-grid { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .proj-card { grid-template-columns: 1fr; }
+  .proj-card:nth-child(even) .proj-imgs,
+  .proj-card:nth-child(even) .proj-body { order: unset; }
+  .proj-imgs { min-height: 220px; }
+  nav { padding: 0 4%; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-brand">Stas Stepien</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#cpd">CPD</a></li>
+    <li><a href="#cv">CV</a></li>
+    <li><a href="#testimonials">Testimonials</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-wrap">
+    <div>
+      <p class="hero-eyebrow">Marketing & Professional Development Portfolio · NTU 2025/26</p>
+      <div class="hero-rule"></div>
+      <h1>Stas<br>Stepien</h1>
+      <p class="hero-sub">Second-year Marketing student at Nottingham Trent University. Working with real clients on live campaigns and building a professional track record.</p>
+      <a href="#projects" class="btn">View Projects</a>
+    </div>
+    <div class="hero-photo">
+      <div class="photo-ph">Your photo here</div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="wrap">
+    <div class="stats-row">
+      <div>
+        <p class="stat-num">2</p>
+        <p class="stat-label">Live Client Projects</p>
+      </div>
+      <div>
+        <p class="stat-num">20+</p>
+        <p class="stat-label">Hours of CPD</p>
+      </div>
+      <div>
+        <p class="stat-num">2</p>
+        <p class="stat-label">Client Presentations Delivered</p>
+      </div>
+      <div>
+        <p class="stat-num">8</p>
+        <p class="stat-label">PDP Objectives Set</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div>
+        <span class="label">About Me</span>
+        <h2 class="title">Building real skills through real work</h2>
+        <div class="about-body">
+          <p>I'm a second-year Marketing student at Nottingham Trent University completing the BUSI22000 Marketing Agency module. Through this module I've worked on two live client campaigns — one for the Nottingham Safeguarding Adults Board and one for British Nordic Walking — gaining hands-on experience in campaign planning, market research, and professional communication.</p>
+          <p>Alongside my studies I'm part of the University Officer Training Corps (UOTC), which has developed my ability to communicate clearly, work effectively under pressure, and operate reliably within a team. These skills feed directly into my project work throughout the module.</p>
+          <p>I'm drawn to careers in active, fast-paced environments — particularly within sport, events, and lifestyle sectors. This portfolio captures my professional development across the module and the evidence behind it.</p>
+        </div>
+      </div>
+      <div>
+        <span class="label">What I Bring</span>
+        <div class="strength-stack">
+          <div class="strength-item">
+            <h4>Teamwork</h4>
+            <p>Worked across two client-facing projects with external organisations, taking on defined responsibilities and contributing to group outcomes.</p>
+          </div>
+          <div class="strength-item">
+            <h4>Communication</h4>
+            <p>Delivered presentations to professional stakeholders including the Nottingham Safeguarding Adults Board, adapting messaging for non-marketing audiences.</p>
+          </div>
+          <div class="strength-item">
+            <h4>Reliability</h4>
+            <p>Managing competing deadlines across two simultaneous campaigns alongside UOTC commitments requiring consistent performance under pressure.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <span class="label">Core Competencies</span>
+    <h2 class="title light">Skills developed across the module</h2>
+    <div class="skills-cols">
+      <div class="skill-col">
+        <h3>Professional & Interpersonal</h3>
+        <div class="sk"><span class="dot"></span><span>Communication — Verbal & Written</span></div>
+        <div class="sk"><span class="dot"></span><span>Presentation & Public Speaking</span></div>
+        <div class="sk"><span class="dot"></span><span>Collaboration & Teamwork</span></div>
+        <div class="sk"><span class="dot"></span><span>Time Management & Prioritisation</span></div>
+        <div class="sk"><span class="dot"></span><span>Conflict Management & Resolution</span></div>
+        <div class="sk"><span class="dot"></span><span>Attention to Detail</span></div>
+        <div class="sk"><span class="dot"></span><span>Personal Branding & Portfolio Development</span></div>
+      </div>
+      <div class="skill-col">
+        <h3>Creative & Content</h3>
+        <div class="sk"><span class="dot"></span><span>Campaign Development & Planning</span></div>
+        <div class="sk"><span class="dot"></span><span>Content Creation — Written & Visual</span></div>
+        <div class="sk"><span class="dot"></span><span>Storytelling & Messaging</span></div>
+        <div class="sk"><span class="dot"></span><span>Visual Design using Canva</span></div>
+        <div class="sk"><span class="dot"></span><span>Market Research & Audience Analysis</span></div>
+      </div>
+      <div class="skill-col">
+        <h3>Digital & Analytical</h3>
+        <div class="sk"><span class="dot"></span><span>Market & Competitor Research</span></div>
+        <div class="sk"><span class="dot"></span><span>Microsoft Office — PowerPoint & Excel</span></div>
+        <div class="sk"><span class="dot"></span><span>Digital Marketing Fundamentals</span></div>
+        <div class="sk"><span class="dot"></span><span>Social Media Strategy</span></div>
+        <div class="sk"><span class="dot"></span><span>Strategic Positioning & Analysis</span></div>
+      </div>
+    </div>
+    <p style="color:rgba(242,232,213,0.28);font-size:0.78rem;font-weight:300;margin-top:3rem;">Skills tracked against my Key Skills Matrix, updated to reflect growth across both client projects.</p>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <span class="label">Featured Projects</span>
+    <h2 class="title">Live client work</h2>
+    <div class="proj-list">
+
+      <div class="proj-card">
+        <div class="proj-imgs">
+          <div class="proj-img"><div class="img-ph">Replace with presentation photo</div></div>
+          <div class="proj-img"><div class="img-ph">Replace with campaign slide</div></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Campaign · Community · Awareness</span>
+          <h3 class="proj-title">Nottingham Safeguarding Adults Board</h3>
+          <p class="proj-overview">Developed a one-week public awareness campaign for the Nottingham Safeguarding Adults Board as part of National Safeguarding Adults Week. The campaign focused on increasing awareness and improving access to safeguarding support, with particular attention given to underrepresented South Asian communities. Presented to the Board at the close of the project.</p>
+          <p class="proj-role-head">My Role</p>
+          <ul class="proj-role-list">
+            <li>Contributed to campaign planning and idea development</li>
+            <li>Conducted research into target audience and underrepresented communities</li>
+            <li>Assisted in developing campaign messaging and tone</li>
+            <li>Refined and improved presentation slides</li>
+            <li>Participated in the final presentation to the Board</li>
+          </ul>
+          <div class="skills-shown">
+            <p class="skills-shown-label">Skills Demonstrated</p>
+            <div class="tags">
+              <span class="tag">Campaign development: Planning and executing cross-channel campaigns</span>
+              <span class="tag">Market research & analysis</span>
+              <span class="tag">Collaboration working with others</span>
+              <span class="tag">Communication Verbal/Written</span>
+              <span class="tag">Presentation & public speaking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="proj-card">
+        <div class="proj-imgs">
+          <div class="proj-img"><div class="img-ph">Replace with timeline slide</div></div>
+          <div class="proj-img"><div class="img-ph">Replace with positioning slide</div></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-tag">Strategy · Brand · Positioning</span>
+          <h3 class="proj-title">British Nordic Walking</h3>
+          <p class="proj-overview">Developed a strategic marketing approach for British Nordic Walking with emphasis on brand positioning and improving engagement across different audience segments. The work involved analysing BNW's current positioning, identifying competitive differences against WALX, and proposing a structured 6-month engagement strategy.</p>
+          <p class="proj-role-head">Key Contributions</p>
+          <ul class="proj-role-list">
+            <li>Developed brand positioning comparison between BNW and WALX</li>
+            <li>Contributed to defining a clear strategic direction</li>
+            <li>Created a structured 6-month campaign timeline</li>
+            <li>Suggested multi-channel engagement strategies</li>
+            <li>Supported presentation delivery</li>
+          </ul>
+          <div class="skills-shown">
+            <p class="skills-shown-label">Skills Demonstrated</p>
+            <div class="tags">
+              <span class="tag">Market research & analysis: Identifying trends, target markets</span>
+              <span class="tag">Market & Competitor Research</span>
+              <span class="tag">Campaign development</span>
+              <span class="tag">Communication Verbal/Written</span>
+              <span class="tag">Presentation & public speaking</span>
+              <span class="tag">Collaboration working with others</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CPD -->
+<section id="cpd">
+  <div class="wrap">
+    <span class="label">Professional Development</span>
+    <h2 class="title">Continuing Professional Development</h2>
+    <p class="cpd-intro">CPD activities completed alongside the Marketing Agency module, each addressing a specific skill gap from my Key Skills Matrix and Personal Development Plan.</p>
+    <div class="cpd-grid">
+      <div class="cpd-card">
+        <div class="cpd-meta"><span>April – May 2026</span><span>4 hrs</span></div>
+        <h3>Google Digital Garage — Fundamentals of Digital Marketing</h3>
+        <span class="cpd-badge">Campaign development · Digital marketing</span>
+        <p>Completed to build foundational knowledge of digital marketing channels, SEO basics, and online campaign planning. Directly relevant to campaign structure work on both client projects.</p>
+      </div>
+      <div class="cpd-card">
+        <div class="cpd-meta"><span>April – May 2026</span><span>4 hrs</span></div>
+        <h3>HubSpot Academy — Social Media Marketing</h3>
+        <span class="cpd-badge">Content creation · Social media strategy</span>
+        <p>Developed understanding of social content planning and audience targeting. Applied to BNW's community engagement strategy and the Safeguarding campaign's audience reach.</p>
+      </div>
+      <div class="cpd-card">
+        <div class="cpd-meta"><span>March 2026</span><span>3 hrs</span></div>
+        <h3>Nottingham Safeguarding Adults Board — Client Presentation</h3>
+        <span class="cpd-badge">Presentation & public speaking · Collaboration</span>
+        <p>First experience presenting to an external professional client body. Developed confidence in structured delivery and adapted messaging for a non-marketing audience.</p>
+      </div>
+      <div class="cpd-card">
+        <div class="cpd-meta"><span>March – April 2026</span><span>5 hrs</span></div>
+        <h3>British Nordic Walking — Brand & Competitor Research</h3>
+        <span class="cpd-badge">Market & Competitor Research</span>
+        <p>Independently researched BNW's market position and conducted competitor analysis against WALX. Developed structured thinking around brand differentiation and audience positioning.</p>
+      </div>
+      <div class="cpd-card">
+        <div class="cpd-meta"><span>March – May 2026</span><span>4 hrs</span></div>
+        <h3>Wix Portfolio Development</h3>
+        <span class="cpd-badge">Personal Branding · Content creation</span>
+        <p>Built a professional external-facing portfolio from scratch. Developed skills in digital content layout, written self-presentation, and evidence curation for a professional audience.</p>
+      </div>
+      <div class="cpd-card">
+        <div class="cpd-meta"><span>February 2026</span><span>1 hr</span></div>
+        <h3>CIM & CMI Competency Framework Review</h3>
+        <span class="cpd-badge">Self-assessment · Career planning</span>
+        <p>Reviewed CIM and CMI graduate competency frameworks to benchmark starting skills matrix scores and identify priority development areas for the module.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CV -->
+<section id="cv">
+  <div class="wrap">
+    <span class="label">Career</span>
+    <h2 class="title light">Curriculum Vitae</h2>
+    <div class="cv-grid">
+      <div>
+        <div class="cv-sec">
+          <p class="cv-sec-label">Education</p>
+          <div class="cv-item">
+            <h4>BA (Hons) Marketing</h4>
+            <p class="cv-sub">Nottingham Trent University · 2024 – 2027</p>
+            <ul><li>BUSI22000 Marketing Agency — live client campaign work with external organisations</li></ul>
+          </div>
+        </div>
+        <div class="cv-sec">
+          <p class="cv-sec-label">Key Projects</p>
+          <div class="cv-item">
+            <h4>Nottingham Safeguarding Adults Board</h4>
+            <p class="cv-sub">2026</p>
+            <ul>
+              <li>Developed public awareness campaign targeting underrepresented South Asian communities</li>
+              <li>Conducted audience research to inform campaign messaging and targeting strategy</li>
+              <li>Presented campaign to the Board during National Safeguarding Adults Week</li>
+            </ul>
+          </div>
+          <div class="cv-item">
+            <h4>British Nordic Walking (BNW)</h4>
+            <p class="cv-sub">2026</p>
+            <ul>
+              <li>Produced brand positioning strategy benchmarked against competitor WALX</li>
+              <li>Created structured 6-month campaign timeline with multi-channel recommendations</li>
+              <li>Contributed to strategic direction and presentation delivery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cv-sec">
+          <p class="cv-sec-label">Experience</p>
+          <div class="cv-item">
+            <h4>University Officer Training Corps (UOTC)</h4>
+            <p class="cv-sub">2024 – Present</p>
+            <ul>
+              <li>Communication and teamwork in structured, high-pressure environments</li>
+              <li>Reliable performance under demanding conditions</li>
+              <li>Adaptability and discipline transferable to professional project work</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cv-sec">
+          <p class="cv-sec-label">Skills</p>
+          <div class="skill-pills">
+            <span class="pill">Campaign planning</span>
+            <span class="pill">Market research</span>
+            <span class="pill">Competitor analysis</span>
+            <span class="pill">Presentation</span>
+            <span class="pill">Collaboration</span>
+            <span class="pill">Time management</span>
+            <span class="pill">Canva</span>
+            <span class="pill">Microsoft Office</span>
+          </div>
+        </div>
+        <div class="cv-sec">
+          <p class="cv-sec-label">CPD & Development</p>
+          <div class="cv-item">
+            <ul>
+              <li>Google Digital Garage: Fundamentals of Digital Marketing</li>
+              <li>HubSpot Academy: Social Media Marketing</li>
+            </ul>
+          </div>
+        </div>
+        <a href="#" class="btn" style="display:inline-block;margin-top:0.5rem;">Download CV (PDF)</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="wrap">
+    <span class="label">Testimonials</span>
+    <h2 class="title">What people say</h2>
+    <div class="test-grid">
+      <div class="test-card">
+        <div class="qmark">"</div>
+        <blockquote>Testimonial from group project teammate — to be added shortly.</blockquote>
+        <p class="test-name">Group Project Teammate</p>
+        <p class="test-role">BUSI22000 · Nottingham Safeguarding Campaign</p>
+      </div>
+      <div class="test-card">
+        <div class="qmark">"</div>
+        <blockquote>Testimonial from UOTC colleague — to be added shortly.</blockquote>
+        <p class="test-name">UOTC Colleague</p>
+        <p class="test-role">University Officer Training Corps</p>
+      </div>
+      <div class="test-card">
+        <div class="qmark">"</div>
+        <blockquote>Testimonial from module tutor — to be added shortly.</blockquote>
+        <p class="test-name">Module Tutor</p>
+        <p class="test-role">BUSI22000 · Nottingham Trent University</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-inner">
+      <div class="contact-text">
+        <span class="label">Get In Touch</span>
+        <h2 class="title light">Contact</h2>
+        <p>Open to opportunities in sport, events, and active lifestyle sectors. Feel free to get in touch regarding graduate roles, placements, or collaborative projects.</p>
+      </div>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-item-label">Email</span>
+          <a href="mailto:stas.stepien1725@gmail.com" class="contact-item-value">stas.stepien1725@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">University</span>
+          <span class="contact-item-value">Nottingham Trent University — BA Marketing, Level 5</span>
+        </div>
+        <div class="contact-item">
+          <span class="contact-item-label">LinkedIn</span>
+          <span class="contact-item-value">Add your LinkedIn URL here</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Stas Stepien · BUSI22000 Marketing Agency Portfolio · NTU 2025/26</p>
+  <p style="color:rgba(201,168,85,0.3);font-size:0.75rem;">Built as part of the Marketing Agency module</p>
+</footer>
+
+</body>
+</html>
